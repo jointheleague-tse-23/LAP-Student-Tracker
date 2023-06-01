@@ -83,12 +83,13 @@ export const AuthProvider: React.FC = ({ children }) => {
   // gets the auth state ready on every refresh
   const auth = useMemo(() => {
     const fbConfig = {
-      apiKey: process.env.NEXT_PUBLIC_FB_API_KEY || "AIzaSyAx2FF4MDHl7p7p84Y_ZwvnKNxDSVN2dLw",
-      authDomain:
-        process.env.NEXT_PUBLIC_FB_AUTH_DOMAIN || "lap-user-tracker-staging.firebaseapp.com",
-      projectId: process.env.NEXT_PUBLIC_FB_PROJECT_ID || "lap-user-tracker-staging",
-      appId: process.env.NEXT_PUBLIC_FB_APP_ID || "1:289395861172:web:14d3154b0aed87f96f99e1",
-    };
+      apiKey: "AIzaSyCcDv-F0ku7_jenMyZd8DCPQGurOZWmcF4",
+
+      authDomain: "lap-student-tracker.firebaseapp.com",
+    
+      projectId: "lap-student-tracker",
+      appId: "1:400461892546:web:fc48a82fc137de8106a45b"
+    }
     const app = firebase.apps[0] || firebase.initializeApp(fbConfig);
     return app.auth();
   }, []);
