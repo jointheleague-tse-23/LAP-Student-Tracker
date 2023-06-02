@@ -41,7 +41,7 @@ const LoginPageMain: React.FC<LoginPageMainProps> = ({
   currPassword,
   error,
 }) => {
-  const url = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
+  const url = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
   const [loading, setLoading] = useState(false);
 
