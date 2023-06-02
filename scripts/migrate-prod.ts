@@ -1,7 +1,7 @@
 // @ts-ignore
 const { Pool } = require("pg");
 const { migrate } = require("postgres-migrations");
-require("dotenv").config({ path: "./.env.staging" });
+require("dotenv").config({ path: "./.env.production.local" });
 
 let DB_PORT = undefined;
 if (process.env.DB_PORT) {
