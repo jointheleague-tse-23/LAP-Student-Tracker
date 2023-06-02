@@ -189,6 +189,7 @@ const VolunteerSignUp: NextApplicationPage = () => {
                 label="Address"
                 type="text"
                 color="warning"
+                value={address}
                 InputProps={{ disableUnderline: true }}
                 sx={cssTextField}
                 onChange={(e) => setAddress(e.target.value)}
@@ -231,17 +232,20 @@ const VolunteerSignUp: NextApplicationPage = () => {
             <div className={styles.thirdStageContainer}>
               <p className={styles.text}>
                 Please schedule an interview with a representative from The League. Enter your
-                availability for the next 7-10 busines days below
+                availability for the next 7-10 business days below
               </p>
             </div>
           )}
           {stage == 3 && (
-            <button
-              className={styles.availabilityButton}
-              onClick={() => setShowManageAvailability(true)}
-            >
-              Enter your availability now
-            </button>
+            <div className={styles.availabilityButtonSpacing}>
+              <Button
+                variant={"contained"}
+                className={styles.availabilityButton}
+                onClick={() => setShowManageAvailability(true)}
+              >
+                Enter your availability here
+              </Button>
+            </div>
           )}
           {showManageAvailability ? (
             <AvailabilityModal handleClose={handleClose} userId={currUser.id} />
@@ -262,7 +266,7 @@ const VolunteerSignUp: NextApplicationPage = () => {
                 variant="contained"
                 onClick={handleNextButton}
               >
-                Next
+                {stage < 3 ? "Next" : "Finish"}
               </Button>
             </div>
           )}
@@ -272,6 +276,5 @@ const VolunteerSignUp: NextApplicationPage = () => {
   );
 };
 
-VolunteerSignUp.requireAuth = true;
 VolunteerSignUp.title = "Volunteer Onboarding";
 export default VolunteerSignUp;
